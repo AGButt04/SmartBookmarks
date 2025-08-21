@@ -45,13 +45,18 @@ function addListener() {
 function render(leadsArray) {
     let listItems = "";
     for (let i = 0; i < leadsArray.length; i++) {
+        const urlObj = new URL(leadsArray[i]);   // parses the URL
+        const faviconUrl = `https://www.google.com/s2/favicons?domain=${urlObj.hostname}`;
+        console.log("Rendering:", leadsArray[i], faviconUrl); // Debug log
         listItems += `
             <li>
-                <a target='_blank' href='${leadsArray[i]}'>${leadsArray[i]}</a>
+                <img src="${faviconUrl}" width="16" height="16">
+                <a target="_blank" href="${urlObj.href}">${urlObj.hostname}</a>
             </li>`;
     }
     ulEL.innerHTML = listItems;
 }
+
 
 function saveToLocalStorage() {
     localStorage.setItem("myLeads", JSON.stringify(myLeads));
