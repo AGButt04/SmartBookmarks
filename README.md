@@ -47,5 +47,5 @@ This is a functional, lightweight lead tracker. Users can quickly save and open 
 - Export/import leads
 
 ---
-*Showcasing skills in JavaScript, Chrome Extensions, and browser APIs.*  
-[GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourname)
+*Showcasing skills in JavaScript, CSS, HTML, Chrome Extensions, and browser APIs.*  
+[GitHub](https://github.com/AGButt04) | [LinkedIn](https://www.linkedin.com/in/abdul-ghani-butt-290056338/)
