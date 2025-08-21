@@ -57,8 +57,12 @@ function render(leadsArray) {
         const faviconUrl = `https://www.google.com/s2/favicons?domain=${urlObj.hostname}`;
         listItems += `
             <li>
-                <img src="${faviconUrl}" alt="Favicon">
-                <a target="_blank" href="${lead.url}">${lead.title}</a>
+                <div class="link-content">
+                    <img src="${faviconUrl}" alt="Favicon">
+                    <a target="_blank" href="${lead.url}">${lead.title}</a>
+                </div>
+                <button data-index="${i}" class="single-delete-btn">Delete</button>
+
             </li>`;
     }
     ulEL.innerHTML = listItems;
