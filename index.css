@@ -68,10 +68,15 @@ button.delete-btn:hover {
 #ul-el li {
     display: flex; /* Place icon + text on the same row */
     align-items: center; /* Center vertically */
-    gap: 8px; /* Space between icon and text */
     padding: 6px 8px; /* Some padding for touch targets */
     border-radius: 8px; /* Rounded corners */
     transition: background 0.15s ease; /* Smooth background color transition */
+    justify-content: space-between; /* Space between icon/text and delete button */
+}
+#ul-el li .link-content {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* small gap between icon and text */
 }
 /* Light hover so items feel interactive */
 #ul-el li:hover {
@@ -85,11 +90,12 @@ button.delete-btn:hover {
 }
 /* Making links clean and clickable */
 #ul-el li a {
+    display: block; /* make it take full width */
     text-decoration: none; /* Remove underline */
-    color: #0b5c2a; /* Inherit text color */
-    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-    overflow: hidden; /* Hide overflow */
-    white-space: nowrap; /* Prevent wrapping */
+    color: #e53935;
+    word-wrap: break-word; /* allow breaking long words */
+    white-space: normal;   /* allow wrapping */
+    max-width: 100%; /* keep inside popup */
 }
 /* Underline only on hover for a nicer feel */
 #ul-el li a:hover {
