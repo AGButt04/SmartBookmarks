@@ -4,43 +4,94 @@ body {
     padding: 10px;
     min-width: 400px;
 }
-li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+/* Container so input/buttons don’t overflow popup */
+.popup-container {
+    max-width: 350px; /* slightly smaller than popup max width */
+    padding: 5px; 
+    box-sizing: border-box; /* padding won't break layout */
 }
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #5f9341;
-    margin-bottom: 4px;
+.popup-container input {
+    width: 100%; /* fill container, not whole window */
+    max-width: 100%; /* prevent overflow */
 }
-
+input {
+    width: 100%;                 /* stretch across container */
+    padding: 8px 10px;           /* comfy typing space */
+    margin-bottom: 8px;          /* space under input */
+    border: 1px solid #ccc;      /* light border */
+    border-radius: 6px;          /* rounded corners */
+    font-size: 14px;             /* readable text */
+    outline: none;               /* remove harsh blue outline */
+    transition: border 0.2s;     /* smooth border on focus */
+}
+input:focus {
+  border: 1px solid #0b5c2a;   /* highlight green when active */
+  box-shadow: 0 0 3px rgba(11, 92, 42, 0.4); /* soft glow */
+}
+/* Buttons base style */
 button {
-    padding: 10px 20px;
-    background: #5f9341;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+  padding: 8px 12px;           /* comfy size */
+  margin: 4px;                 /* space between buttons */
+  border: none;                /* remove ugly borders */
+  border-radius: 6px;          /* rounded corners */
+  background: #0b5c2a;       /* main green color */
+  color: white;              /* white text */
+  font-size: 14px;
+  cursor: pointer;             /* pointer on hover */
+  transition: background 0.2s, transform 0.1s;
 }
+
+/* Hover state */
 button:hover {
-    background-color: #e0e0e0;
+  background: #0e7335;         /* slightly brighter green */
 }
 
-ul {
-    margin-top: 20px;
-    list-style: none;
-    padding-left: 2px;
+/* Pressed/active state */
+button:active {
+  transform: scale(0.97);      /* small “press down” effect */
 }
 
-li {
-    margin-top: 5px;
+/* Special style for "delete" or danger actions */
+button.delete-btn {
+  background: #c62828;         /* red for dangerous actions */
 }
 
-li a {
-    color: #5f9341;
-    text-decoration: none;
+button.delete-btn:hover {
+  background: #e53935;         /* lighter red on hover */
+}
+#ul-el {
+    list-style: none; /* No bullets */
+    margin-top: 10px; /* Some breathing room between rows */
+    padding-left: 0; /* Flush to the left */
+}
+/* Make each item a neat row with some space and rounded corners */
+#ul-el li {
+    display: flex; /* Place icon + text on the same row */
+    align-items: center; /* Center vertically */
+    gap: 8px; /* Space between icon and text */
+    padding: 6px 8px; /* Some padding for touch targets */
+    border-radius: 8px; /* Rounded corners */
+    transition: background 0.15s ease; /* Smooth background color transition */
+}
+/* Light hover so items feel interactive */
+#ul-el li:hover {
+  background: #f5f5f5;        /* tiny gray background on hover */
+}
+/* Keep the favicon consistent */
+#ul-el li img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle; /* prevents the “icon sits higher” look */
+}
+/* Making links clean and clickable */
+#ul-el li a {
+    text-decoration: none; /* Remove underline */
+    color: #0b5c2a; /* Inherit text color */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    overflow: hidden; /* Hide overflow */
+    white-space: nowrap; /* Prevent wrapping */
+}
+/* Underline only on hover for a nicer feel */
+#ul-el li a:hover {
+  text-decoration: underline;
 }
