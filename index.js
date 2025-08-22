@@ -29,7 +29,7 @@ function saveTab() {
 
 function deleteListener() {
     deleteBtn.addEventListener("dblclick", function() {
-        localStorage.clear();
+        localStorage.removeItem(storageKey);
         myLeads = [];
         render(myLeads);
     });
