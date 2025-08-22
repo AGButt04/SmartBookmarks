@@ -1,5 +1,13 @@
+h2 {
+  color:green;
+  font-size:19px;
+  font-weight:bold;
+  font-family: Times New Roman, serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Times New Roman, serif;
+    font-size: 14px;
     margin: 0;
     padding: 10px;
     min-width: 400px;
