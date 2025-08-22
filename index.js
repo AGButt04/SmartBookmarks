@@ -11,7 +11,7 @@ getFromLocalStorage();
 // 🔑 Call them once to attach event listeners
 addListener();
 deleteAllListener();
-deleteSingleLink();
+enableDeleteDelegation();
 saveTab();
 
 function saveTab() {
@@ -28,15 +28,14 @@ function saveTab() {
     });
 }
 
-function deleteSingleLink() {
-    const deleteBtns = document.querySelectorAll(".single-delete-btn");
-    deleteBtns.forEach(function(btn){
-        btn.addEventListener("click", function() {
-            let index = btn.dataset.index;
+function enableDeleteDelegation() {
+    ulEL.addEventListener("click", function(event) {
+        if (event.target.classList.contains("single-delete-btn")) {
+            let index = event.target.dataset.index;
             myLeads.splice(index, 1);
             saveToLocalStorage();
             render(myLeads);
-        });
+        }
     });
 }
 
@@ -85,7 +84,6 @@ function render(leadsArray) {
             </li>`;
     }
     ulEL.innerHTML = listItems;
-    deleteSingleLink(); // Reattach listeners after rendering
 }
 
 
