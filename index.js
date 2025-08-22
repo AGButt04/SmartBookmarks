@@ -11,6 +11,7 @@ getFromLocalStorage();
 // 🔑 Call them once to attach event listeners
 addListener();
 deleteListener();
+deleteSingleLink();
 saveTab();
 
 function saveTab() {
@@ -21,6 +22,18 @@ function saveTab() {
                 title: tabs[0].title
             };
             myLeads.push(activeTabUrl);
+            saveToLocalStorage();
+            render(myLeads);
+        });
+    });
+}
+
+function deleteSingleLink() {
+    const deleteBtns = document.querySelectorAll(".single-delete-btn");
+    deleteBtns.forEach(function(btn){
+        btn.addEventListener("click", function() {
+            let index = btn.dataset.index;
+            myLeads.splice(index, 1);
             saveToLocalStorage();
             render(myLeads);
         });
@@ -39,6 +52,7 @@ function addListener() {
     inputBtn.addEventListener("click", function() {
         const value = inputEL.value.trim();
         if (!value) return;
+        
         myLeads.push(value);
         inputEL.value = "";
         saveToLocalStorage();
@@ -66,6 +80,7 @@ function render(leadsArray) {
             </li>`;
     }
     ulEL.innerHTML = listItems;
+    deleteSingleLink(); // Reattach listeners after rendering
 }
 
 
