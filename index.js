@@ -10,7 +10,7 @@ getFromLocalStorage();
 
 // 🔑 Call them once to attach event listeners
 addListener();
-deleteListener();
+deleteAllListener();
 deleteSingleLink();
 saveTab();
 
@@ -40,11 +40,16 @@ function deleteSingleLink() {
     });
 }
 
-function deleteListener() {
+function deleteAllListener() {
     deleteBtn.addEventListener("dblclick", function() {
-        localStorage.removeItem(storageKey);
-        myLeads = [];
-        render(myLeads);
+        const confirmation = confirm("Are you sure you want to delete all leads?");
+        if (confirmation) {
+            localStorage.removeItem(storageKey);
+            myLeads = [];
+            render(myLeads);
+            alert("All stored leads have been deleted.");
+
+        }
     });
 }
 
