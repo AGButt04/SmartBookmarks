@@ -3,6 +3,7 @@ const deleteBtn = document.getElementById("delete-btn");
 const inputEL = document.getElementById("input-el");
 const ulEL = document.getElementById("ul-el");
 const tabBtn = document.getElementById("tab-btn");
+const searchInput = document.getElementById("search-input");
 const storageKey = "myLeads";
 let myLeads = JSON.parse(localStorage.getItem(storageKey)) || [];
 
@@ -13,6 +14,7 @@ addListener();
 deleteAllListener();
 enableDeleteDelegation();
 enableEditDelegation();
+attachSearch();
 saveTab();
 
 function saveTab() {
@@ -25,6 +27,26 @@ function saveTab() {
             myLeads.push(activeTabUrl);
             saveToLocalStorage();
             render(myLeads);
+        });
+    });
+}
+
+function attachSearch() {
+    if (!searchInput) return;
+
+    searchInput.addEventListener("input", function() {
+        const query = searchInput.value.trim().toLowerCase();
+        items = ulEL.querySelectorAll("li");
+
+        items.forEach(li => {
+            const link = li.querySelector("a");
+            if (!link) return;
+
+            title = link.textContent.toLowerCase();
+            url = (link.getAttribute("href") || "").toLowerCase();
+
+            const match = title.includes(query) || url.includes(query);
+            li.style.display =  match? "" : "None";
         });
     });
 }
