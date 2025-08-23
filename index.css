@@ -7,7 +7,7 @@ h2 {
 
 body {
     font-family: Times New Roman, serif;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     padding: 10px;
     min-width: 400px;
@@ -76,6 +76,7 @@ button.delete-btn:hover {
 #ul-el li {
     display: flex; /* Place icon + text on the same row */
     align-items: center; /* Center vertically */
+    width: 100%;
     padding: 6px 8px; /* Some padding for touch targets */
     border-radius: 8px; /* Rounded corners */
     transition: background 0.15s ease; /* Smooth background color transition */
@@ -108,4 +109,8 @@ button.delete-btn:hover {
 /* Underline only on hover for a nicer feel */
 #ul-el li a:hover {
   text-decoration: underline;
+}
+#ul-el li .button-container {
+    display: flex;
+    gap: 2px; /* space between buttons */
 }
