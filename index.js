@@ -12,6 +12,7 @@ getFromLocalStorage();
 addListener();
 deleteAllListener();
 enableDeleteDelegation();
+enableEditDelegation();
 saveTab();
 
 function saveTab() {
@@ -35,6 +36,20 @@ function enableDeleteDelegation() {
             myLeads.splice(index, 1);
             saveToLocalStorage();
             render(myLeads);
+        }
+    });
+}
+
+function enableEditDelegation() {
+    ulEL.addEventListener("click", function(event) {
+        if (event.target.classList.contains("single-edit-btn")) {
+            let index = event.target.dataset.index;
+            let newTitle = prompt("Enter the new title", myLeads[index].title);
+            if (newTitle !== null && newTitle.trim() !== "") {
+                myLeads[index].title = newTitle.trim();
+                saveToLocalStorage();
+                render(myLeads);
+            }
         }
     });
 }
@@ -79,7 +94,10 @@ function render(leadsArray) {
                     <img src="${faviconUrl}" alt="Favicon">
                     <a target="_blank" href="${lead.url}">${lead.title}</a>
                 </div>
-                <button data-index="${i}" class="single-delete-btn">Delete</button>
+                <div class="button-container">
+                    <button data-index="${i}" class="single-delete-btn">Delete</button>
+                    <button data-index="${i}" class="single-edit-btn">Edit</button>
+                </div>
 
             </li>`;
     }
