@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "Bookmark Manager",
-    "description": "A Simple Chrome extension",
+    "name": "Smart Bookmarks",
+    "description": "Smart Bookmarks is a lightweight Chrome extension that lets you save, edit, delete, and search your favorite links directly from a simple popup. Features include one-click saving of the current tab, adding, editing, and deleting bookmarks, built-in search for quick access, and a clean, intuitive interface. Perfect for users who want a faster alternative to the default Chrome bookmarks bar.",
     "action": {
         "default_popup": "index.html",
         "default_icon": "bookmark.png"
