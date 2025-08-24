@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "Leads Tracker",
+    "name": "Bookmark Manager",
     "description": "A Simple Chrome extension",
     "action": {
         "default_popup": "index.html",
