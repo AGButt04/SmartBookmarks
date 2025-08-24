@@ -7,7 +7,11 @@
         "default_popup": "index.html",
         "default_icon": "bookmark.png"
     },
+    "icons": {
+        "128": "bookmark.png"
+    },
     "permissions": [
-        "tabs"
+        "tabs",
+        "storage"
     ]
 }
