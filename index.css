@@ -5,9 +5,23 @@ h2 {
   font-family: Times New Roman, serif;
 }
 
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+  margin-bottom: 5px;
+}
+
+.popup-icon {
+  padding-left: 5px;
+  width: 28px;  /* adjust to fit nicely */
+  height: 28px;
+  object-fit: contain;
+}
+
 body {
     font-family: Times New Roman, serif;
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     padding: 10px;
     min-width: 400px;
