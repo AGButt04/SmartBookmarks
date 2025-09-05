@@ -1,6 +1,8 @@
 # 📌 Smart Bookmarks - Chrome Extension
 A lightweight Chrome extension to save, search, and manage bookmarks directly from your browser.
 
+<img src="images/SmartBookmarks.png" alt="App Screenshot" width="300"/>
+
 ## 🎯 Features
 - 🔗 **Save Input** – Manually enter and store a URL
 - 🌐 **Save Tab** – One-click save of the current browser tab
