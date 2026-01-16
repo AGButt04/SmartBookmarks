@@ -1,130 +1,220 @@
-h2 {
-  color:green;
-  font-size:19px;
-  font-weight:bold;
-  font-family: Times New Roman, serif;
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.06);
+  --card-2: rgba(255,255,255,0.09);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --border: rgba(255,255,255,0.12);
+
+  --accent: #22c55e;          /* modern green */
+  --accent-2: #16a34a;
+  --danger: #ef4444;
+
+  --shadow: 0 12px 30px rgba(0,0,0,0.35);
+  --radius: 14px;
 }
 
-.popup-header {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* space between icon and text */
-  margin-bottom: 5px;
+/* ---------- Base ---------- */
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  padding: 14px;
+  min-width: 400px;
+
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 15% 10%, rgba(34,197,94,0.25), transparent 55%),
+    radial-gradient(900px 500px at 85% 0%, rgba(59,130,246,0.18), transparent 60%),
+    var(--bg);
+
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-size: 15px;
+  line-height: 1.35;
 }
 
-.popup-icon {
-  padding-left: 5px;
-  width: 28px;  /* adjust to fit nicely */
-  height: 28px;
+/* ---------- Headings ---------- */
+h2{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+
+/* ---------- Header row (icon + title) ---------- */
+.popup-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+
+.popup-icon{
+  width: 30px;
+  height: 30px;
+  padding-left: 0;
   object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
 }
 
-body {
-    font-family: Times New Roman, serif;
-    font-size: 18px;
-    margin: 0;
-    padding: 10px;
-    min-width: 400px;
+/* ---------- Container ---------- */
+.popup-container{
+  max-width: 360px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  box-shadow: var(--shadow);
 }
-/* Container so input/buttons don’t overflow popup */
-.popup-container {
-    max-width: 350px; /* slightly smaller than popup max width */
-    padding: 5px; 
-    box-sizing: border-box; /* padding won't break layout */
+
+.popup-container input{
+  width: 100%;
+  max-width: 100%;
 }
-.popup-container input {
-    width: 100%; /* fill container, not whole window */
-    max-width: 100%; /* prevent overflow */
-}
-input {
-    width: 100%;                 /* stretch across container */
-    padding: 8px 10px;           /* comfy typing space */
-    margin-bottom: 8px;          /* space under input */
-    border: 1px solid #ccc;      /* light border */
-    border-radius: 6px;          /* rounded corners */
-    font-size: 14px;             /* readable text */
-    outline: none;               /* remove harsh blue outline */
-    transition: border 0.2s;     /* smooth border on focus */
-}
-input:focus {
-  border: 1px solid #0b5c2a;   /* highlight green when active */
-  box-shadow: 0 0 3px rgba(11, 92, 42, 0.4); /* soft glow */
-}
-/* Buttons base style */
-button {
-  padding: 8px 12px;           /* comfy size */
-  margin: 4px;                 /* space between buttons */
-  border: none;                /* remove ugly borders */
-  border-radius: 6px;          /* rounded corners */
-  background: #0b5c2a;       /* main green color */
-  color: white;              /* white text */
+
+/* ---------- Inputs ---------- */
+input{
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+
   font-size: 14px;
-  cursor: pointer;             /* pointer on hover */
-  transition: background 0.2s, transform 0.1s;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
 }
 
-/* Hover state */
-button:hover {
-  background: #0e7335;         /* slightly brighter green */
+input::placeholder{
+  color: rgba(255,255,255,0.45);
 }
 
-/* Pressed/active state */
-button:active {
-  transform: scale(0.97);      /* small “press down” effect */
+input:focus{
+  border-color: rgba(34,197,94,0.65);
+  box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
+  transform: translateY(-1px);
 }
 
-/* Special style for "delete" or danger actions */
-button.delete-btn {
-  background: #c62828;         /* red for dangerous actions */
+/* ---------- Buttons ---------- */
+button{
+  padding: 9px 12px;
+  margin: 4px 6px 4px 0;
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+
+  background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(22,163,74,0.95));
+  color: #07120b;
+
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.28);
+  transition: transform 0.12s ease, filter 0.18s ease, box-shadow 0.18s ease;
 }
 
-button.delete-btn:hover {
-  background: #e53935;         /* lighter red on hover */
+button:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(0,0,0,0.32);
 }
-#ul-el {
-    list-style: none; /* No bullets */
-    margin-top: 10px; /* Some breathing room between rows */
-    padding-left: 0; /* Flush to the left */
+
+button:active{
+  transform: translateY(0px) scale(0.98);
 }
-/* Make each item a neat row with some space and rounded corners */
-#ul-el li {
-    display: flex; /* Place icon + text on the same row */
-    align-items: center; /* Center vertically */
-    width: 100%;
-    padding: 6px 8px; /* Some padding for touch targets */
-    border-radius: 8px; /* Rounded corners */
-    transition: background 0.15s ease; /* Smooth background color transition */
-    justify-content: space-between; /* Space between icon/text and delete button */
+
+/* Danger button */
+button.delete-btn{
+  background: linear-gradient(180deg, rgba(239,68,68,0.95), rgba(220,38,38,0.95));
+  color: #190606;
 }
-#ul-el li .link-content {
-    display: flex;
-    align-items: center;
-    gap: 6px; /* small gap between icon and text */
+
+button.delete-btn:hover{
+  filter: brightness(1.05);
 }
-/* Light hover so items feel interactive */
-#ul-el li:hover {
-  background: #f5f5f5;        /* tiny gray background on hover */
+
+/* ---------- List ---------- */
+#ul-el{
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
 }
-/* Keep the favicon consistent */
-#ul-el li img {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle; /* prevents the “icon sits higher” look */
+
+#ul-el li{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+
+  padding: 10px 10px;
+  margin-bottom: 8px;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+
+  transition: transform 0.12s ease, background 0.18s ease, border-color 0.18s ease;
 }
-/* Making links clean and clickable */
-#ul-el li a {
-    display: block; /* make it take full width */
-    text-decoration: none; /* Remove underline */
-    color: #e53935;
-    word-wrap: break-word; /* allow breaking long words */
-    white-space: normal;   /* allow wrapping */
-    max-width: 100%; /* keep inside popup */
+
+#ul-el li:hover{
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(34,197,94,0.35);
+  transform: translateY(-1px);
 }
-/* Underline only on hover for a nicer feel */
-#ul-el li a:hover {
+
+#ul-el li .link-content{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Favicons */
+#ul-el li img{
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* Links */
+#ul-el li a{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+
+  overflow-wrap: anywhere;
+  white-space: normal;
+  max-width: 100%;
+}
+
+#ul-el li a:hover{
   text-decoration: underline;
+  text-underline-offset: 3px;
+  color: rgba(34,197,94,0.95);
 }
-#ul-el li .button-container {
-    display: flex;
-    gap: 2px; /* space between buttons */
+
+/* Button group */
+#ul-el li .button-container{
+  display:flex;
+  gap: 6px;
+}
+
+/* Smaller icon-only buttons inside list (optional) */
+#ul-el li .button-container button{
+  padding: 7px 10px;
+  margin: 0;
+  border-radius: 12px;
+  font-weight: 800;
 }
