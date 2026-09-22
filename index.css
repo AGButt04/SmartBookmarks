@@ -57,17 +57,28 @@ input {
   box-shadow: var(--shadow);
 }
 
+/* Header row: icon and title side by side */
 .popup-header {
-  grid-column: 1 / -1;
   display: flex;
+  grid-column: 1 / -1;
   align-items: center;
+  justify-content: flex-start;
   gap: 11px;
+  flex-wrap: nowrap;
   margin-bottom: 4px;
   padding: 3px 2px 11px;
   border-bottom: 1px solid var(--border);
 }
 
+.popup-header .title-group {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
 .popup-icon {
+  flex-shrink: 0;
   width: 34px;
   height: 34px;
   padding: 6px;
@@ -78,11 +89,28 @@ input {
 }
 
 h2 {
+  overflow: hidden;
   margin: 0;
   color: var(--text);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.025em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Action buttons container, sits inline with the title */
+.header-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-actions button {
+  height: 32px;
+  padding: 0 10px;
+  font-size: 11px;
 }
 
 input {
